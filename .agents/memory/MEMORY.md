@@ -1,0 +1,1 @@
+- [WebGL compatibility](webgl-compatibility.md) — interactive 3D scenes need a graceful 2D fallback for preview environments without a WebGL context.
