@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Neon Open World"
+description = "A browser-based 3D open-world driving game with free-roam exploration, a responsive vehicle, city roads, hills, landmarks, and a live HUD."
+version = "1.0.0"
+id = "artifacts/neon-open-world"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24083
+
+[services.development]
+run = "pnpm --filter @workspace/neon-open-world run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/neon-open-world", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/neon-open-world/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24083"
+BASE_PATH = "/"
