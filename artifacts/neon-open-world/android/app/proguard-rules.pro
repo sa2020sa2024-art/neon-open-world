@@ -1,0 +1,1 @@
+# The game is a local WebView bundle. Keep the default release rules minimal.
